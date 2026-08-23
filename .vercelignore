@@ -1,0 +1,23 @@
+# Documentation files
+*.md
+!README.md
+
+# Development files
+.vscode
+.idea
+*.log
+*.lock
+
+# Test files
+__tests__
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Scripts
+scripts/seed.js
+
+# Local env files
+.env.local
+.env*.local
