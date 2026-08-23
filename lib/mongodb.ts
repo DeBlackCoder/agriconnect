@@ -33,6 +33,12 @@ if (!global.mongooseCache) {
 
 // Ensure critical indexes for performance
 async function ensureIndexes(db: any) {
+  // Skip index creation during build
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
+    console.log('[db] Skipping index creation during build');
+    return;
+  }
+
   try {
     console.log('[db] Ensuring critical indexes...');
     
@@ -64,6 +70,12 @@ async function ensureIndexes(db: any) {
 }
 
 export async function connectDB() {
+  // Skip database connection during build phase
+  if (process.env.NEXT_PHASE === 'phase-production-build') {
+    console.log('[db] Skipping database connection during build');
+    return mongoose;
+  }
+
   // Use validated environment variable
   const MONGODB_URI = env.MONGODB_URI;
 
