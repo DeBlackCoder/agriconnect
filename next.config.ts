@@ -9,13 +9,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
   typescript: {
     ignoreBuildErrors: true,
-  },
-  webpack: (config) => {
-    // Disable minimization for faster builds
-    config.optimization.minimize = false;
-    return config;
   },
 };
 
