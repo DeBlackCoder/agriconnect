@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { LogOut, Menu, X, ChevronDown, Settings, BarChart3 } from 'lucide-react';
+import ConfirmDialog from './ConfirmDialog';
 
 interface User {
   id: string;
@@ -160,7 +161,7 @@ export default function MarketplaceNav() {
                       </Link>
 
                       <button
-                        onClick={handleLogout}
+                        onClick={() => setShowLogoutDialog(true)}
                         className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 transition-colors text-sm border-t border-gray-200/50"
                       >
                         <LogOut className="w-4 h-4" />
@@ -280,7 +281,7 @@ export default function MarketplaceNav() {
                 </Link>
 
                 <button
-                  onClick={handleLogout}
+                  onClick={() => setShowLogoutDialog(true)}
                   className="w-full text-left px-4 py-3 rounded-full text-red-600 hover:bg-red-50 transition-colors font-medium"
                 >
                   Sign out
